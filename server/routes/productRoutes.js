@@ -21,10 +21,4 @@ router.put("/:id", updateProduct);
 // Delete a product
 router.delete("/:id", deleteProduct);
 
-// Get a product by name
-// router.get("/name/:name", async (req, res) => {
-// 	const product = await Product.findOne({ name: req.params.name });
-// 	res.status(200).json(product);
-// });
-
 export default router;

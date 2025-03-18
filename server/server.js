@@ -3,17 +3,20 @@ import dotenv from "dotenv";
 import { connectDB } from "./config/db.js";
 // import Product from "./models/Product.js";
 import productRoutes from "./routes/productRoutes.js";
+import cors from "cors";
+
 dotenv.config();
+connectDB();
 
 const app = express();
 
 const PORT = process.env.PORT || 5000;
 
+app.use(cors());
 app.use(express.json());
 
 app.use("/api/products", productRoutes);
 
 app.listen(PORT, () => {
-	connectDB();
 	console.log(`Server is running on port ${PORT}`);
 });
