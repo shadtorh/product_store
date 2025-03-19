@@ -1,9 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import useProductStore from "../store/product";
-// import Pagination from "./Pagination";
 
-const ProductsList = ({ product, deleteProduct, updateProduct }) => {
+const ProductsList = ({ product }) => {
 	return (
 		<div className="card w-full bg-base-100 shadow-md rounded-xl overflow-hidden transition-all duration-300 hover:shadow-xl">
 			{/* Product Image */}
@@ -17,10 +15,10 @@ const ProductsList = ({ product, deleteProduct, updateProduct }) => {
 
 			{/* Product Info */}
 			<div className="card-body p-5">
-				<h2 className="card-title text-lg font-bold text-gray-800">
+				<h2 className="card-title text-lg font-bold text-secondary">
 					{product.name}
 				</h2>
-				<p className="text-gray-600 text-sm">
+				<p className="info-content text-sm">
 					Premium quality {product.name} available at the best price.
 				</p>
 

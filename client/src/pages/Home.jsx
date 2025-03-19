@@ -1,12 +1,14 @@
 import React, { useEffect } from "react";
 import ProductsList from "../components/ProductsList";
 import useProductStore from "../store/product";
+import { Link } from "react-router-dom";
 
 const Home = () => {
 	const { fetchProducts, products, loading, error } = useProductStore();
 
+	// Fetch products when the component mounts
 	useEffect(() => {
-		fetchProducts();
+		if (fetchProducts) fetchProducts();
 	}, [fetchProducts]);
 
 	return (
@@ -15,19 +17,35 @@ const Home = () => {
 				Products
 			</h1>
 
+			{/* Loading Indicator */}
 			{loading && (
-				<p className="loading  text-9xl text-primary animate-spin"></p>
+				<div className="flex justify-center items-center">
+					<div className="animate-spin rounded-full h-12 w-12 border-t-4 border-primary"></div>
+				</div>
 			)}
+
+			{/* Error Message */}
 			{error && <p className="text-center text-lg text-red-500">{error}</p>}
 
-			{/* Responsive Grid for Products */}
-			<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-				{!loading &&
-					!error &&
-					products.map((product) => (
-						<ProductsList key={product._id} product={product} />
-					))}
-			</div>
+			{/* Show Products or "No Products Found" */}
+			{!loading && !error && (
+				<>
+					{products.length > 0 ? (
+						<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+							{products.map((product) => (
+								<ProductsList key={product._id} product={product} />
+							))}
+						</div>
+					) : (
+						<div className="flex flex-col items-center mt-8">
+							<p className="text-lg text-primary">No products found</p>
+							<Link to="/add-product" className="btn btn-primary mt-4">
+								Create Product
+							</Link>
+						</div>
+					)}
+				</>
+			)}
 		</div>
 	);
 };

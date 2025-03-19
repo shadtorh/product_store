@@ -8,7 +8,7 @@ import Error from "./components/Error";
 import ViewDetails from "./components/ViewDetails";
 import { ToastContainer } from "react-toastify"; // Import ToastContainer
 import "react-toastify/dist/ReactToastify.css"; // Import Toastify CSS
-
+import EditProduct from "./components/EditProduct";
 const router = createBrowserRouter([
 	{
 		path: "/",
@@ -28,6 +28,10 @@ const router = createBrowserRouter([
 				element: <ViewDetails />,
 
 				// Add more routes as needed...
+			},
+			{
+				path: "edit-product/:id",
+				element: <EditProduct />,
 			},
 		],
 	},
