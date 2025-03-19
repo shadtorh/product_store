@@ -12,8 +12,8 @@ const Home = () => {
 	}, [fetchProducts]);
 
 	return (
-		<div className="container mx-auto p-4 sm:p-8 md:p-12 lg:p-16">
-			<h1 className="text-4xl font-extrabold mb-10 text-center text-primary">
+		<div className="container mx-auto p-4 sm:p-8 sm:px-16 md:p-12 lg:p-16">
+			<h1 className="text-4xl font-extrabold mb-10 mt-10 text-center text-primary">
 				Products
 			</h1>
 
