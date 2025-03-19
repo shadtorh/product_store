@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { toast } from "react-toastify";
 import useProductStore from "../store/product";
 import { useNavigate, useParams, useLocation } from "react-router-dom";

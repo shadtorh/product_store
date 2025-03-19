@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 const ViewDetails = () => {
 	const location = useLocation();
 	const navigate = useNavigate();
-	const { deleteProduct, updateProduct } = useProductStore();
+	const { deleteProduct } = useProductStore();
 
 	// Get product from location state
 	const product = location.state?.product;
